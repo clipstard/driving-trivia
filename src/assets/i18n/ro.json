@@ -1,0 +1,11 @@
+{
+    "ui": {
+        "tab": {
+            "exams": "Bilete",
+            "themes": "Teme",
+            "stats": "Statistici",
+            "settings": "Setari",
+            "share": "Share"
+        }
+    }
+}

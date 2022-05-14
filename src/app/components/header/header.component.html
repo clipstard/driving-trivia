@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            {{ title | translate }}
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-toggle [className]="'flag-ro'"
+                        #flagRo
+                        name="lang"
+                        [(ngModel)]="selectedLangRo"
+                        (ionChange)="flagSelected('ro')">
+            </ion-toggle>
+            <ion-toggle [className]="'flag-ru'"
+                        #flagRu
+                        [(ngModel)]="selectedLangRu"
+                        name="lang"
+                        (ionChange)="flagSelected('ru')">
+            </ion-toggle>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
