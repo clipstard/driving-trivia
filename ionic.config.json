@@ -1,0 +1,7 @@
+{
+  "name": "driving-trivia",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
