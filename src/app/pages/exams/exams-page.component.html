@@ -3,11 +3,11 @@
 <ion-content [fullscreen]="true">
     <ion-header collapse="condense">
         <ion-toolbar>
-            <ion-title size="large">Tab 1</ion-title>
+            <ion-title size="large">{{ 'ui.tab.exams' | translate }}</ion-title>
         </ion-toolbar>
     </ion-header>
 
-    <ion-list>
+    <ion-list *ngIf="loaded">
         <app-driving-list-item
             [title]="'ui.category.title' | translate: {category: 'AM A1 A2 A B1 B'}"
             [description]="descriptionAB"
@@ -44,7 +44,12 @@
     <div style="flex: 100%">Intrebari: 24</div>
     <div style="flex: 100%">Greseli admise: 2</div>
     <div style="flex: 100%">Timp: 30m</div>
-    <div style="flex: 100%">Incercari: <span class="ion-color-success bold">1</span> / <strong class="color-contrast">3</strong></div>
+    <div style="flex: 100%">
+        Incercari:
+        <span class="ion-color-success bold">{{ this.stats[0].success }}</span>
+        /
+        <strong class="color-contrast">{{ this.stats[0].total }}</strong>
+    </div>
 </ng-template>
 
 <ng-template #comingSoon>

@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ExamsService, ExamsStatsInterface } from '@app/services/exams.service';
+import { noop } from 'rxjs';
 
 @Component({
     selector: 'app-exams-page',
@@ -7,8 +9,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class ExamsPageComponent implements OnInit {
     isDark = false;
+    stats: ExamsStatsInterface[] = [];
+    loaded = false;
 
     constructor(
+        private examsService: ExamsService,
     ) {
     }
 
@@ -18,5 +23,26 @@ export class ExamsPageComponent implements OnInit {
         media.addEventListener('change', (e) => {
             this.isDark = e.matches;
         });
+
+        this.initStats().then(noop);
+    }
+
+    public async initStats() {
+        this.stats = await this.examsService.getAll();
+        console.log(this.stats);
+        this.stats = this.stats.sort((a: ExamsStatsInterface, b: ExamsStatsInterface) => {
+
+            if (a.category < b.category) {
+                return -1;
+            }
+
+            if (a.category > b.category) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        this.loaded = true;
     }
 }
