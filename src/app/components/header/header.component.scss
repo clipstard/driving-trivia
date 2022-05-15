@@ -2,20 +2,27 @@
 
 :host {
     ion-toggle {
-        --handle-width: 30px;
-        --handle-height: 30px;
-        width: 51px;
-        height: 21px;
-        padding: 12px 2px;
 
         &.flag-ro {
             --handle-background: center/125% 150% no-repeat #fff url(#{$flag-ro});
-            --handle-background-checked: center / cover no-repeat var(--ion-color-primary, #3880ff) url(#{$flag-ro});
+            --handle-background-checked: center / cover no-repeat var(--ion-color-secondary-shade) url(#{$flag-ro});
         }
 
         &.flag-ru {
             --handle-background: center/125% 150% no-repeat #fff url(#{$flag-ru});
-            --handle-background-checked: center / cover no-repeat var(--ion-color-primary, #3880ff) url(#{$flag-ru});
+            --handle-background-checked: center / cover no-repeat var(--ion-color-secondary-shade) url(#{$flag-ru});
+        }
+
+        &.md {
+            --handle-width: 30px;
+            --handle-height: 30px;
+            width: 51px;
+            height: 21px;
+            padding: 12px 2px;
+        }
+
+        &.ios {
+            padding: 12px 6px;
         }
     }
 }

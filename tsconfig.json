@@ -19,10 +19,10 @@
     "paths": {
         "@abstracts/*": ["src/abstracts/*"],
         "@app/*": ["src/app/*"],
-        "@core/*": ["src/app/core/*"],
+        "@components/*": ["src/app/components/*"],
+        "@pages/*": ["src/app/pages/*"],
         "@shared/*": ["src/app/shared/*"],
         "@modals/*": ["src/app/core/modals/*"],
-        "@pages/*": ["src/app/core/pages/*"],
         "@assets/*": ["src/assets/*"],
         "@conf/*": ["src/configs/*"],
         "@constants/*": ["src/constants/*"],

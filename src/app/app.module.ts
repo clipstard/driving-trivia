@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 export const httpLoaderFactory = (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
@@ -29,6 +30,7 @@ export const httpLoaderFactory = (http: HttpClient) => new TranslateHttpLoader(h
                 deps: [HttpClient],
             },
         }),
+        IonicStorageModule.forRoot(),
     ],
     providers: [
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

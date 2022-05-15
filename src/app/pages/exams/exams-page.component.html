@@ -7,7 +7,50 @@
         </ion-toolbar>
     </ion-header>
 
-    <div>
-        this is exams tab
-    </div>
+    <ion-list>
+        <app-driving-list-item
+            [title]="'ui.category.title' | translate: {category: 'AM A1 A2 A B1 B'}"
+            [description]="descriptionAB"
+            [imgSrc]="'/assets/images/content/ab'"></app-driving-list-item>
+        <app-driving-list-item
+            [title]="'ui.category.title' | translate: {category: 'BE'}"
+            [description]="description"
+            [imgSrc]="'/assets/images/content/be'"></app-driving-list-item>
+        <app-driving-list-item
+            [title]="'ui.category.title' | translate: {category: 'C1 C'}"
+            [description]="comingSoon"
+            [imgSrc]="'/assets/images/content/c'"></app-driving-list-item>
+        <app-driving-list-item
+            [title]="'ui.category.title' | translate: {category: 'C1E CE'}"
+            [description]="comingSoon"
+            [imgSrc]="'/assets/images/content/ce'"></app-driving-list-item>
+        <app-driving-list-item
+            [title]="'ui.category.title' | translate: {category: 'D D1'}"
+            [description]=""
+            [imgSrc]="'/assets/images/content/d'"></app-driving-list-item>
+        <app-driving-list-item
+            [title]="'ui.category.title' | translate: {category: 'D1E DE'}"
+            [description]="comingSoon"
+            [imgSrc]="'/assets/images/content/de'"></app-driving-list-item>
+        <app-driving-list-item
+            [title]="'ui.category.title' | translate: {category: 'T'}"
+            [description]="comingSoon"
+            [imgSrc]="'/assets/images/content/t'"></app-driving-list-item>
+    </ion-list>
+
 </ion-content>
+
+<ng-template #description>
+    <div style="flex: 100%">Intrebari: 24</div>
+    <div style="flex: 100%">Greseli admise: 2</div>
+    <div style="flex: 100%">Timp: 30m</div>
+    <div style="flex: 100%">Incercari: <span class="ion-color-success bold">1</span> / <strong class="color-contrast">3</strong></div>
+</ng-template>
+
+<ng-template #comingSoon>
+    &lt;{{ 'base.coming_soon' | translate }}&gt;
+</ng-template>
+
+<ng-template #descriptionAB>
+    <app-description-template></app-description-template>
+</ng-template>

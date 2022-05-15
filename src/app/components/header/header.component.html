@@ -5,13 +5,11 @@
         </ion-title>
         <ion-buttons slot="end">
             <ion-toggle [className]="'flag-ro'"
-                        #flagRo
                         name="lang"
                         [(ngModel)]="selectedLangRo"
                         (ionChange)="flagSelected('ro')">
             </ion-toggle>
             <ion-toggle [className]="'flag-ru'"
-                        #flagRu
                         [(ngModel)]="selectedLangRu"
                         name="lang"
                         (ionChange)="flagSelected('ru')">

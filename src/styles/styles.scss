@@ -1,5 +1,31 @@
 @import 'constants';
 
 :root {
-    --test-me: $flagRo;
+
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.fs-l {
+    font-size: 1.25em;
+}
+
+.color-success,
+.ion-color-success {
+    color: var(--ion-color-success);
+}
+
+
+.color-contrast {
+    color: var(--ion-color-light-contrast);
+
+    @media (prefers-color-scheme: dark) {
+        color: var(--ion-color-light-contrast);
+    }
+}
+
+.d-block {
+    display: block;
 }

@@ -1,4 +1,7 @@
 {
+    "base": {
+        "coming_soon": "În curând"
+    },
     "ui": {
         "tab": {
             "exams": "Bilete",
@@ -6,6 +9,9 @@
             "stats": "Statistici",
             "settings": "Setari",
             "share": "Share"
+        },
+        "category": {
+            "title": "Categoria {{category}}"
         }
     }
 }

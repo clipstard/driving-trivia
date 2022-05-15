@@ -1,0 +1,17 @@
+{
+    "base": {
+        "coming_soon": "Скоро"
+    },
+    "ui": {
+        "tab": {
+            "exams": "Билеты",
+            "themes": "По главам",
+            "stats": "Сматистика",
+            "settings": "Настройки",
+            "share": "Поделиться"
+        },
+        "category": {
+            "title": "Категория {{category}}"
+        }
+    }
+}

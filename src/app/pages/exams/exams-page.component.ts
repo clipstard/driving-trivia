@@ -1,37 +1,22 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonToggle } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'app-exams-page',
     templateUrl: 'exams-page.component.html',
     styleUrls: ['exams-page.component.scss'],
 })
-export class ExamsPageComponent {
-
-    @ViewChild('flagRo', { read: IonToggle }) flagRo: IonToggle;
-    @ViewChild('flagRu', { read: IonToggle }) flagRu: IonToggle;
-    selectedLangRo: string|boolean = true;
-    selectedLangRu: string|boolean = false;
+export class ExamsPageComponent implements OnInit {
+    isDark = false;
 
     constructor(
     ) {
     }
 
-    flagSelected(lang: 'ro'|'ru') {
-        if (!this.selectedLangRo && !this.selectedLangRu) {
-            if (lang === 'ro') {
-                this.selectedLangRu = 'on';
-            } else {
-                this.selectedLangRo = 'on';
-            }
-        }
-
-        if (this.selectedLangRo && this.selectedLangRu) {
-            if (lang === 'ro') {
-                this.selectedLangRu = false;
-            } else {
-                this.selectedLangRo = false;
-            }
-        }
+    ngOnInit() {
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+        this.isDark = media.matches;
+        media.addEventListener('change', (e) => {
+            this.isDark = e.matches;
+        });
     }
 }
