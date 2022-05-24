@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
@@ -8,9 +8,12 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } 
 })
 export class DescriptionTemplateComponent implements OnInit {
 
+    @Input() questions: number;
+    @Input() time = 30;
+    @Input() total = 0;
+    @Input() permittedFails = 2;
+    @Input() success = 0;
     @Input() title;
-    selectedLangRo: string|boolean = true;
-    selectedLangRu: string|boolean = false;
 
     constructor(
     ) {

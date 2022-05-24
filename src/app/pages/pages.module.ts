@@ -11,6 +11,7 @@ import { SettingsPageComponent } from '@app/pages/settings/settings-page.compone
 import { StatsPageComponent } from '@app/pages/stats/stats-page.component';
 import { ThemesPageComponent } from '@app/pages/themes/themes-page.component';
 import { ComponentsModule } from '@app/components/components.module';
+import { ExamViewPage } from '@pages/exam-view/exam-view-page.component';
 
 @NgModule({
     imports: [
@@ -26,12 +27,14 @@ import { ComponentsModule } from '@app/components/components.module';
         SettingsPageComponent,
         StatsPageComponent,
         ThemesPageComponent,
+        ExamViewPage,
     ],
     exports: [
         ExamsPageComponent,
         SettingsPageComponent,
         StatsPageComponent,
         ThemesPageComponent,
+        ExamViewPage,
     ],
 })
 export class PagesModule {

@@ -1,12 +1,15 @@
 <ion-label class="d-block">
-    test
+    <strong>{{ 'exams.list.questions' | translate }}</strong><span>{{ questions }}</span>
 </ion-label>
 <ion-label class="d-block">
-    test
+    <strong>{{ 'exams.list.admitted_fails' | translate }}</strong><span>{{ permittedFails }}</span>
 </ion-label>
 <ion-label class="d-block">
-    test
+    <strong>{{ 'exams.list.time' | translate }}</strong><span>{{ time }}</span>
 </ion-label>
 <ion-label class="d-block">
-    test
+    <strong>{{ 'exams.list.attempts' | translate }}</strong>
+    <span class="ion-color-success bold">{{ success }}</span>
+    /
+    <span class="color-contrast bold">{{ total }}</span>
 </ion-label>

@@ -13,5 +13,13 @@
         "category": {
             "title": "Categoria {{category}}"
         }
+    },
+    "exams": {
+        "list": {
+            "questions": "Intrebări: ",
+            "admitted_fails": "Greșeli admise: ",
+            "time": "Timp: ",
+            "attempts": "Încercări: "
+        }
     }
 }

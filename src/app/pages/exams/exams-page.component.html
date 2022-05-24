@@ -8,13 +8,13 @@
     </ion-header>
 
     <ion-list *ngIf="loaded">
-        <app-driving-list-item
+        <app-driving-list-item (click)="test()"
             [title]="'ui.category.title' | translate: {category: 'AM A1 A2 A B1 B'}"
             [description]="descriptionAB"
             [imgSrc]="'/assets/images/content/ab'"></app-driving-list-item>
         <app-driving-list-item
             [title]="'ui.category.title' | translate: {category: 'BE'}"
-            [description]="description"
+            [description]="descriptionBE"
             [imgSrc]="'/assets/images/content/be'"></app-driving-list-item>
         <app-driving-list-item
             [title]="'ui.category.title' | translate: {category: 'C1 C'}"
@@ -40,22 +40,23 @@
 
 </ion-content>
 
-<ng-template #description>
-    <div style="flex: 100%">Intrebari: 24</div>
-    <div style="flex: 100%">Greseli admise: 2</div>
-    <div style="flex: 100%">Timp: 30m</div>
-    <div style="flex: 100%">
-        Incercari:
-        <span class="ion-color-success bold">{{ this.stats[0].success }}</span>
-        /
-        <strong class="color-contrast">{{ this.stats[0].total }}</strong>
-    </div>
-</ng-template>
-
 <ng-template #comingSoon>
     &lt;{{ 'base.coming_soon' | translate }}&gt;
 </ng-template>
 
 <ng-template #descriptionAB>
-    <app-description-template></app-description-template>
+    <app-description-template
+        [questions]="settings.AB.questions"
+        [success]="settings.AB.success"
+        [total]="settings.AB.total"
+        [time]="settings.AB.time"
+        [permittedFails]="settings.AB.permittedFails"></app-description-template>
+</ng-template>
+<ng-template #descriptionBE>
+    <app-description-template
+        [questions]="settings.BE.questions"
+        [success]="settings.BE.success"
+        [total]="settings.BE.total"
+        [time]="settings.BE.time"
+        [permittedFails]="settings.BE.permittedFails"></app-description-template>
 </ng-template>

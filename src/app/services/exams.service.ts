@@ -32,11 +32,13 @@ export class ExamsService {
         } as ExamsStatsInterface;
     }
 
-    public async ensureCategoriesExists() {
-        EXAMS_CATEGORIES.forEach(cat => {
-            this.getByCategory(cat);
-        });
+    public async initStats() {
+        const keys = await this.storageService.keys();
+        if (!keys.includes(this._key)) {
+            await this.storageService.set(this._key, null);
+        }
 
+        EXAMS_CATEGORIES.forEach(this.getByCategory.bind(this));
         await this.saveStats();
     }
 

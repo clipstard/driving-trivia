@@ -1,43 +1,35 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ExamsService, ExamsStatsInterface } from '@app/services/exams.service';
 import { noop } from 'rxjs';
 import { AB, BE } from '@constants/exams-categories.const';
-import { EXAMS_SETTINGS } from '@constants/exams-settings.const';
-import { NavController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { EXAMS_SETTINGS, ExamsSettingsConst } from '@constants/exams-settings.const';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-exams-page',
-    templateUrl: 'exams-page.component.html',
-    styleUrls: ['exams-page.component.scss'],
+    templateUrl: 'exam-view-page.component.html',
+    styleUrls: ['exam-view-page.component.scss'],
 })
-export class ExamsPageComponent implements OnInit {
-    settings = EXAMS_SETTINGS;
-    isDark = false;
+export class ExamViewPage implements OnInit {
+    @Input() settings: ExamsSettingsConst;
     stats: ExamsStatsInterface[] = [];
     loaded = false;
 
     constructor(
         private examsService: ExamsService,
-        private navController: NavController,
-        private router: Router,
+        private activatedRoute: ActivatedRoute,
     ) {
+        console.log(this.activatedRoute.snapshot.data);
     }
 
     test() {
         console.log('clicked');
-        // this.router.navigate(['details']).then(() => console.log('navigate'));
-        this.navController.navigateForward('details').then(() => console.log('then'));
     }
 
     ngOnInit() {
         const media = window.matchMedia('(prefers-color-scheme: dark)');
-        this.isDark = media.matches;
-        media.addEventListener('change', (e) => {
-            this.isDark = e.matches;
-        });
 
-        this.initStats().then(noop);
+        // this.initStats().then(noop);
     }
 
     public async initStats() {

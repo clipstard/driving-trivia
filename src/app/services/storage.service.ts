@@ -12,8 +12,13 @@ export class StorageService {
     ) {
     }
 
+    public keys() {
+        return this._storage.keys();
+    }
+
     async init() {
         this._storage = await this.storage.create();
+        console.log('set storage');
     }
 
     public async set(key: string, value: any) {
@@ -21,6 +26,7 @@ export class StorageService {
     }
 
     public get(key: string): Promise<any> {
+        console.log(`get key ${key}`);
         return this._storage.get(key);
     }
 }

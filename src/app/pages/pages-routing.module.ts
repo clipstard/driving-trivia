@@ -4,6 +4,7 @@ import { ExamsPageComponent } from './exams/exams-page.component';
 import { ThemesPageComponent } from '@app/pages/themes/themes-page.component';
 import { StatsPageComponent } from '@app/pages/stats/stats-page.component';
 import { SettingsPageComponent } from '@app/pages/settings/settings-page.component';
+import { ExamViewPage } from '@pages/exam-view/exam-view-page.component';
 
 const routes: Routes = [
     {
@@ -23,9 +24,9 @@ const routes: Routes = [
         component: SettingsPageComponent,
     },
     {
-        path: '**',
-        redirectTo: 'exams',
-    }
+        path: 'view-page',
+        component: ExamViewPage,
+    },
 ];
 
 @NgModule({
