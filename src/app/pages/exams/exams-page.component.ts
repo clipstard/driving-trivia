@@ -27,7 +27,7 @@ export class ExamsPageComponent implements OnInit {
     test() {
         console.log('clicked');
         // this.router.navigate(['details']).then(() => console.log('navigate'));
-        this.navController.navigateForward('details').then(() => console.log('then'));
+        this.navController.navigateForward(['/details']);
     }
 
     ngOnInit() {

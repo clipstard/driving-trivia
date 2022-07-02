@@ -1,4 +1,4 @@
-<app-header [title]="'ui.tab.exams'"></app-header>
+<app-header [title]="'ui.tab.details'"></app-header>
 
 <ion-content [fullscreen]="true">
     <ion-header collapse="condense">
@@ -10,4 +10,5 @@
     view page here
     {{ settings | json }}
 
+    <ion-button (click)="navigate()"></ion-button>
 </ion-content>

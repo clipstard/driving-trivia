@@ -4,14 +4,12 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ExamsPageComponent } from './exams/exams-page.component';
 import { PagesRoutingModule } from '@app/pages/pages-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { SettingsPageComponent } from '@app/pages/settings/settings-page.component';
 import { StatsPageComponent } from '@app/pages/stats/stats-page.component';
 import { ThemesPageComponent } from '@app/pages/themes/themes-page.component';
 import { ComponentsModule } from '@app/components/components.module';
-import { ExamViewPage } from '@pages/exam-view/exam-view-page.component';
 
 @NgModule({
     imports: [
@@ -23,18 +21,14 @@ import { ExamViewPage } from '@pages/exam-view/exam-view-page.component';
         ComponentsModule,
     ],
     declarations: [
-        ExamsPageComponent,
         SettingsPageComponent,
         StatsPageComponent,
         ThemesPageComponent,
-        ExamViewPage,
     ],
     exports: [
-        ExamsPageComponent,
         SettingsPageComponent,
         StatsPageComponent,
         ThemesPageComponent,
-        ExamViewPage,
     ],
 })
 export class PagesModule {

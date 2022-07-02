@@ -1,37 +1,31 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { DetailsPage } from './details.page';
+import { ExamsPageComponent } from './exams-page.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: DetailsPage,
+        component: ExamsPageComponent,
     },
     {
-        path: 'view-page',
+        path: 'details',
         children: [
             {
                 path: '',
-                loadChildren: () => import('../pages/exam-view/exam-view.module').then(m => m.ExamViewModule),
+                loadChildren: () => import('../../details/details.module').then(m => m.DetailsPageModule),
             },
-            {
-                path: '**',
-                pathMatch: 'full',
-                redirectTo: '',
-            }
         ],
     },
     {
         path: '**',
         redirectTo: '',
         pathMatch: 'full',
-    },
+    }
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
-export class DetailsPageRoutingModule {
+export class ExamsRoutingModule {
 }

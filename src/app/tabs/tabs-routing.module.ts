@@ -9,7 +9,26 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                loadChildren: () => import('../pages/pages.module').then(m => m.PagesModule),
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => import('../pages/exams/exams.module').then(m => m.ExamsModule),
+                    },
+                ],
+            },
+            {
+                path: 'pages',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () => import('../pages/pages.module').then(m => m.PagesModule),
+                    },
+                ],
+            },
+            {
+                path: '**',
+                redirectTo: '',
+                pathMatch: 'full',
             },
         ],
     },

@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '@app/services/language.service';
 
 
 @Component({
@@ -10,24 +11,29 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
 
     @Input() title;
-    selectedLangRo: string|boolean = true;
-    selectedLangRu: string|boolean = false;
+    selectedLangRo: boolean;
+    selectedLangRu: boolean;
 
     constructor(
         private translate: TranslateService,
+        private languageService: LanguageService,
     ) {
     }
 
     ngOnInit() {
-        this.flagSelected('ro');
+        const lan = this.languageService.getOnlyOne();
+        this.selectedLangRo = lan === 'ro';
+        this.selectedLangRu = lan === 'ru';
+
+        this.flagSelected(lan);
     }
 
     flagSelected(lang: 'ro'|'ru') {
         if (!this.selectedLangRo && !this.selectedLangRu) {
             if (lang === 'ro') {
-                this.selectedLangRu = 'on';
+                this.selectedLangRu = true;
             } else {
-                this.selectedLangRo = 'on';
+                this.selectedLangRo = true;
             }
         }
 
@@ -39,12 +45,14 @@ export class HeaderComponent implements OnInit {
             }
         }
 
-        if (this.selectedLangRo) {
+        if (lang === 'ro' && this.selectedLangRo) {
             this.translate.use('ro');
+            this.languageService.setOnlyOne('ro');
         }
 
-        if (this.selectedLangRu) {
+        if (lang === 'ru' && this.selectedLangRu) {
             this.translate.use('ru');
+            this.languageService.setOnlyOne('ru');
         }
     }
 }
