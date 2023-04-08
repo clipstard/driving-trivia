@@ -14,8 +14,10 @@
         }
 
         &.md {
-            --handle-width: 30px;
-            --handle-height: 30px;
+            --handle-width: 25px;
+            --handle-height: 25px;
+            --handle-max-height: 25px;
+            --handle-max-width: 25px;
             width: 51px;
             height: 21px;
             padding: 12px 2px;

@@ -30,6 +30,9 @@
                         ]
                     }
                 ],
+                "@typescript-eslint/semi": [
+                    "off"
+                ],
                 "@angular-eslint/component-selector": [
                     "error",
                     {

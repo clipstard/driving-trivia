@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { inject, NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { CanDeactivateGuard } from '@app/guards/can-deactivate.guard'
 
 const routes: Routes = [
     {
@@ -8,33 +9,26 @@ const routes: Routes = [
         component: TabsPage,
         children: [
             {
-                path: '',
-                children: [
-                    {
-                        path: '',
-                        loadChildren: () => import('../pages/exams/exams.module').then(m => m.ExamsModule),
-                    },
-                ],
+                path: 'exams',
+                loadChildren: () => import('../pages/exams/exams.module').then(m => m.ExamsModule),
             },
             {
-                path: 'pages',
-                children: [
-                    {
-                        path: '',
-                        loadChildren: () => import('../pages/pages.module').then(m => m.PagesModule),
-                    },
-                ],
+                path: 'stats',
+                loadChildren: () => import('../pages/stats/stats.module').then(m => m.StatsModule),
             },
             {
-                path: '**',
-                redirectTo: '',
-                pathMatch: 'full',
+                path: 'themes',
+                loadChildren: () => import('../pages/themes/themes.module').then(m => m.ThemesModule),
+            },
+            {
+                path: 'settings',
+                loadChildren: () => import('../pages/settings/settings.module').then(m => m.SettingsModule),
             },
         ],
     },
     {
         path: '**',
-        redirectTo: '',
+        redirectTo: 'exams',
         pathMatch: 'full',
     },
 ];

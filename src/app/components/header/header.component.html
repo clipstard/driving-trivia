@@ -9,12 +9,14 @@
         <ion-buttons slot="end">
             <ion-toggle [className]="'flag-ro'"
                         name="lang"
+                        aria-label=""
                         [(ngModel)]="selectedLangRo"
                         (ionChange)="flagSelected('ro')">
             </ion-toggle>
             <ion-toggle [className]="'flag-ru'"
                         [(ngModel)]="selectedLangRu"
                         name="lang"
+                        aria-label=""
                         (ionChange)="flagSelected('ru')">
             </ion-toggle>
         </ion-buttons>

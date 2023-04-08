@@ -1,11 +1,11 @@
-import { AfterViewInit, Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { StorageService } from '@app/services/storage.service';
-import { ExamsService } from '@app/services/exams.service';
-import { LoadingController, NavController } from '@ionic/angular';
-import { bufferTime, debounceTime, delay, map, switchMap } from 'rxjs/operators';
-import { NavService } from '@app/services';
-import { firstValueFrom, from } from 'rxjs'
+import { AfterViewInit, Component, EventEmitter, OnInit, ViewChild } from '@angular/core'
+import { TranslateService } from '@ngx-translate/core'
+import { StorageService } from '@app/services/storage.service'
+import { ExamsService } from '@app/services/exams.service'
+import { LoadingController, NavController } from '@ionic/angular'
+import { delay, switchMap } from 'rxjs/operators'
+import { NavService } from '@app/services'
+import { from } from 'rxjs'
 
 @Component({
     selector: 'app-root',
@@ -14,9 +14,10 @@ import { firstValueFrom, from } from 'rxjs'
 })
 export class AppComponent implements OnInit, AfterViewInit {
 
-    @ViewChild('router') ionRouter;
-    loadingEvents: EventEmitter<boolean> = new EventEmitter<boolean>();
-    loading = true;
+    @ViewChild('router') ionRouter
+    loadingEvents: EventEmitter<boolean> = new EventEmitter<boolean>()
+    loading = true
+
     constructor(
         private translate: TranslateService,
         private storage: StorageService,
@@ -25,28 +26,26 @@ export class AppComponent implements OnInit, AfterViewInit {
         private navController: NavController,
         private navService: NavService,
     ) {
-        translate.setDefaultLang('ro');
-        translate.addLangs(['ru', 'ro']);
-        translate.reloadLang('ro').pipe(switchMap(() => translate.reloadLang('ru'))).subscribe();
-        // translate.use('ro');
-        // translate.use('ru');
+        translate.setDefaultLang('ro')
+        translate.addLangs(['ru', 'ro'])
+        translate.reloadLang('ro').pipe(switchMap(() => translate.reloadLang('ru'))).subscribe()
     }
 
     async ngOnInit() {
-        const date1 = new Date().getTime();
-        const loading = await this.presentLoadingWithOptions();
-        await this.storage.init();
-        await from(this.examsService.initStats()).pipe(delay(750)).toPromise();
-        this.loading = false;
-        await loading.dismiss();
-        this.loadingEvents.emit(true);
-        console.log(new Date().getTime() - date1);
+        const date1 = new Date().getTime()
+        const loading = await this.presentLoadingWithOptions()
+        await this.storage.init()
+        await from(this.examsService.initStats()).pipe(delay(750)).toPromise()
+        this.loading = false
+        await loading.dismiss()
+        this.loadingEvents.emit(true)
+        console.log(new Date().getTime() - date1)
     }
 
     ngAfterViewInit() {
         this.loadingEvents.subscribe(() => {
-            this.navController.setTopOutlet(this.ionRouter);
-        });
+            this.navController.setTopOutlet(this.ionRouter)
+        })
     }
 
     async presentLoadingWithOptions() {
@@ -56,9 +55,9 @@ export class AppComponent implements OnInit, AfterViewInit {
             message: 'Loading...',
             translucent: true,
             cssClass: 'custom-class custom-loading',
-            backdropDismiss: false
-        });
-        await loading.present();
-        return loading;
+            backdropDismiss: false,
+        })
+        await loading.present()
+        return loading
     }
 }
