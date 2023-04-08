@@ -3,9 +3,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { StorageService } from '@app/services/storage.service';
 import { ExamsService } from '@app/services/exams.service';
 import { LoadingController, NavController } from '@ionic/angular';
-import { fromPromise } from 'rxjs/internal-compatibility';
 import { bufferTime, debounceTime, delay, map, switchMap } from 'rxjs/operators';
 import { NavService } from '@app/services';
+import { firstValueFrom, from } from 'rxjs'
 
 @Component({
     selector: 'app-root',
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         const date1 = new Date().getTime();
         const loading = await this.presentLoadingWithOptions();
         await this.storage.init();
-        await fromPromise(this.examsService.initStats()).pipe(delay(750)).toPromise();
+        await from(this.examsService.initStats()).pipe(delay(750)).toPromise();
         this.loading = false;
         await loading.dismiss();
         this.loadingEvents.emit(true);
