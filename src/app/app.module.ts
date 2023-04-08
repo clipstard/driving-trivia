@@ -17,7 +17,6 @@ export const httpLoaderFactory = (http: HttpClient) => new TranslateHttpLoader(h
     declarations: [
         AppComponent,
     ],
-    entryComponents: [],
     imports: [
         BrowserModule,
         IonicModule.forRoot({ mode: 'md' }),
@@ -36,8 +35,7 @@ export const httpLoaderFactory = (http: HttpClient) => new TranslateHttpLoader(h
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ],
     bootstrap: [AppComponent],
-    exports: [
-    ],
+    exports: []
 })
 export class AppModule {
 }
