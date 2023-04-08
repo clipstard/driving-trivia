@@ -14,12 +14,15 @@ export class ExamViewPage implements OnInit {
     @Input() settings: ExamsSettingsConst;
     stats: ExamsStatsInterface[] = [];
     loaded = false;
+    currentCategory = 'B'
 
     constructor(
         private examsService: ExamsService,
         private activatedRoute: ActivatedRoute,
     ) {
         console.log(this.activatedRoute.snapshot.data);
+        console.log(this.activatedRoute.snapshot.params);
+        this.currentCategory = this.activatedRoute.snapshot.params['category'] ?? ''
     }
 
     test() {

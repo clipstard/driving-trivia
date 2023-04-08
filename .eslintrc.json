@@ -33,6 +33,9 @@
                 "@typescript-eslint/semi": [
                     "off"
                 ],
+                "@typescript-eslint/dot-notation": [
+                    "off"
+                ],
                 "@angular-eslint/component-selector": [
                     "error",
                     {

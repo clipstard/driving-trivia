@@ -1,13 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular'
 
-import { ExamsPageComponent } from './exams-page.component';
-import { TranslateModule } from '@ngx-translate/core';
-import { ComponentsModule } from '@app/components/components.module';
-import { ExamsRoutingModule } from '@pages/exams/exams-routing.module';
+import { TranslateModule } from '@ngx-translate/core'
+import { ComponentsModule } from '@app/components/components.module'
+import { ExamsRoutingModule } from '@pages/exams/exams-routing.module'
+import { ExamsListComponent } from '@pages/exams/exams-list/exams-list.component'
+import { ExamViewPage } from '@pages/exam-view/exam-view-page.component'
+import { ExamsModuleWrapperComponent } from '@pages/exams/exams-module-wrapper.component'
 
 @NgModule({
     imports: [
@@ -19,10 +21,12 @@ import { ExamsRoutingModule } from '@pages/exams/exams-routing.module';
         ExamsRoutingModule,
     ],
     declarations: [
-        ExamsPageComponent,
+        ExamsModuleWrapperComponent,
+        ExamsListComponent,
+        ExamViewPage,
     ],
     exports: [
-        ExamsPageComponent,
+        ExamsModuleWrapperComponent,
     ],
 })
 export class ExamsModule {

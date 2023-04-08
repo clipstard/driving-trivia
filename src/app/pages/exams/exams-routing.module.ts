@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ExamsPageComponent } from './exams-page.component';
+import { ExamsListComponent } from '@pages/exams/exams-list/exams-list.component'
+import { ExamViewPage } from '@pages/exam-view/exam-view-page.component'
+import { ExamsModuleWrapperComponent } from '@pages/exams/exams-module-wrapper.component'
 
 const routes: Routes = [
     {
         path: '',
-        component: ExamsPageComponent,
-    },
-    {
-        path: 'details',
+        component: ExamsModuleWrapperComponent,
         children: [
             {
                 path: '',
-                loadChildren: () => import('../../details/details.module').then(m => m.DetailsPageModule),
+                component: ExamsListComponent,
             },
-        ],
+            {
+                path: 'category/:category',
+                component: ExamViewPage,
+            },
+        ]
     },
 ];
 

@@ -1,13 +1,5 @@
-<app-header [title]="'ui.tab.exams'"></app-header>
+<app-header [title]="'View exam'"></app-header>
 
 <ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-        <ion-toolbar>
-            <ion-title size="large">{{ 'ui.tab.exams' | translate }}</ion-title>
-        </ion-toolbar>
-    </ion-header>
-
-    view page here
-{{ settings | json }}
-
+    view page here <strong>{{ currentCategory }}</strong>
 </ion-content>

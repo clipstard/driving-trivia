@@ -19,10 +19,8 @@ import { ExamViewRoutingModule } from '@pages/exam-view/exam-view-routing.module
         ExamViewRoutingModule,
     ],
     declarations: [
-        ExamViewPage,
     ],
     exports: [
-        ExamViewPage,
     ],
 })
 export class ExamViewModule {

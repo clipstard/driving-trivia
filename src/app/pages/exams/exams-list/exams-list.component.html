@@ -1,17 +1,14 @@
-<app-header [title]="'ui.tab.exams'"></app-header>
+<app-header [title]="'Exam list'"></app-header>
 
 <ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-        <ion-toolbar>
-            <ion-title size="large">{{ 'ui.tab.exams' | translate }}</ion-title>
-        </ion-toolbar>
-    </ion-header>
-
     <ion-list *ngIf="loaded">
-        <app-driving-list-item (click)="test()"
+        <app-driving-list-item
+            (click)="test()"
             [title]="'ui.category.title' | translate: {category: 'AM A1 A2 A B1 B'}"
             [description]="descriptionAB"
-            [imgSrc]="'/assets/images/content/ab'"></app-driving-list-item>
+            [imgSrc]="'/assets/images/content/ab'"
+        >
+        </app-driving-list-item>
         <app-driving-list-item
             [title]="'ui.category.title' | translate: {category: 'BE'}"
             [description]="descriptionBE"

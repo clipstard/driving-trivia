@@ -7,6 +7,7 @@ import { TabsPageRoutingModule } from './tabs-routing.module';
 
 import { TabsPage } from './tabs.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterOutlet } from '@angular/router'
 
 @NgModule({
     imports: [
@@ -15,6 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
         FormsModule,
         TabsPageRoutingModule,
         TranslateModule.forChild(),
+        RouterOutlet,
     ],
     declarations: [
         TabsPage,
