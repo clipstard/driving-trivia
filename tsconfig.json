@@ -2,38 +2,71 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "baseUrl": "./",
-        "outDir": "./dist/out-tsc",
-        "sourceMap": true,
-        "declaration": false,
-        "downlevelIteration": true,
-        "experimentalDecorators": true,
-        "moduleResolution": "node",
-        "importHelpers": true,
-        "target": "es2020",
-        "module": "es2020",
-        "lib": [
-            "es2018",
-            "dom"
+      "baseUrl": "./",
+      "outDir": "./dist/out-tsc",
+      "sourceMap": true,
+      "declaration": false,
+      "downlevelIteration": true,
+      "experimentalDecorators": true,
+      "moduleResolution": "node",
+      "importHelpers": true,
+      "target": "ES2022",
+      "module": "es2020",
+      "lib": [
+        "es2018",
+        "dom"
+      ],
+      "paths": {
+        "@abstracts/*": [
+          "src/abstracts/*"
         ],
-    "paths": {
-        "@abstracts/*": ["src/abstracts/*"],
-        "@app/*": ["src/app/*"],
-        "@components/*": ["src/app/components/*"],
-        "@pages/*": ["src/app/pages/*"],
-        "@shared/*": ["src/app/shared/*"],
-        "@modals/*": ["src/app/core/modals/*"],
-        "@assets/*": ["src/assets/*"],
-        "@conf/*": ["src/configs/*"],
-        "@constants/*": ["src/constants/*"],
-        "@enums/*": ["src/enums/*"],
-        "@environments/*": ["src/environments/*"],
-        "@helper/*": ["src/helper/*"],
-        "@interceptors/*": ["src/interceptors/*"],
-        "@interfaces/*": ["src/interfaces/*"],
-        "@serializers/*": ["src/serializers/*"],
-        "@modules/*": ["src/modules/*"]
-        }
+        "@app/*": [
+          "src/app/*"
+        ],
+        "@components/*": [
+          "src/app/components/*"
+        ],
+        "@pages/*": [
+          "src/app/pages/*"
+        ],
+        "@shared/*": [
+          "src/app/shared/*"
+        ],
+        "@modals/*": [
+          "src/app/core/modals/*"
+        ],
+        "@assets/*": [
+          "src/assets/*"
+        ],
+        "@conf/*": [
+          "src/configs/*"
+        ],
+        "@constants/*": [
+          "src/constants/*"
+        ],
+        "@enums/*": [
+          "src/enums/*"
+        ],
+        "@environments/*": [
+          "src/environments/*"
+        ],
+        "@helper/*": [
+          "src/helper/*"
+        ],
+        "@interceptors/*": [
+          "src/interceptors/*"
+        ],
+        "@interfaces/*": [
+          "src/interfaces/*"
+        ],
+        "@serializers/*": [
+          "src/serializers/*"
+        ],
+        "@modules/*": [
+          "src/modules/*"
+        ]
+      },
+      "useDefineForClassFields": false
     },
     "angularCompilerOptions": {
         "enableI18nLegacyMessageIdFormat": false,
